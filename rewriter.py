@@ -11,7 +11,6 @@ creativity = st.slider("Creativity(Temperature)", 0.0, 1.0, 0.7)
 def rewrite(text, tone, creativity):
     model = ChatOpenAI(temperature=creativity, api_key=openai_api_key)
     prompt = f"Rewrite the Following text in a {tone.lower()} tone. Return only the rewritten text.\n\n{text}"
-    st.code(prompt)
     reply = model.invoke(prompt)
     return reply.content
 
